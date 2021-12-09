@@ -1,0 +1,17 @@
+#QUESTION
+#https://www.hackerrank.com/challenges/ctci-bubble-sort/problem
+
+def countSwaps(a):
+    n = len(a)
+    count = 0
+    for i in range(n):
+        for j in range(n-1):
+            if(a[j] > a[j+1]):
+                count += 1
+                swap(j, j+1, a)
+    print(f"Array is sorted in {count} swaps. ")
+    print(f"First Element: {a[0]}")
+    print(f"Last Element: {a[n-1]}")
+
+def swap(first, second, li):
+    li[first], li[second] = li[second], li[first]
