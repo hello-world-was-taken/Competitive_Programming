@@ -1,5 +1,6 @@
 #QUESTION
 #https://leetcode.com/problems/implement-queue-using-stacks/
+#Using two stacks we can also move the data backwards and forwards to get the queue like feel, but it is inefficient. 
 
 class MyQueue:
 
