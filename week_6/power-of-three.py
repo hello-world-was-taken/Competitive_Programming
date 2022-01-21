@@ -7,7 +7,7 @@ class Solution:
         if n%3 != 0:
             return False
         else:
-            return self.isPowerOfThree(n//3)
+            return self.helper(n//3)
     def isPowerOfThree(self, n: int) -> bool:
         if n == 0:
             return False
