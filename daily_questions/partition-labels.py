@@ -5,28 +5,19 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
         dic = defaultdict(int)
-        unique = set()
-        count = 0
         ans = []
-        total_negated_till_now = 0
         
-        
-        for i in s:
-            dic[i] += 1
-        
-        for i in s:
-            unique.add(i)
-            dic[i] -= 1
-            total_negated_till_now += 1
+        for i,v in enumerate(s):
+            dic[v] = i
 
-            for j in list(unique):
+        curr_max = -1
+        sub_str_count = 0
+        
+        for index, value in enumerate(s):
+            sub_str_count += 1
+            curr_max = max(dic[value], curr_max)
+            if index == curr_max:
+                ans.append(sub_str_count)
+                sub_str_count = 0
 
-                if dic[j] == 0:
-                    # print("count: ", j, " ", dic[j])
-                    count += 1
-            if count == len(unique):
-                ans.append(total_negated_till_now)
-                unique = set()
-                total_negated_till_now = 0
-            count = 0
         return ans   
