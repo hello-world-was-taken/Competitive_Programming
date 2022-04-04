@@ -4,9 +4,9 @@
 
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
-        points.sort(key=lambda x: x[1])
+        points.sort(key=lambda x: x[1])# sorting it based on the ending value
         
-        # do it for the first round
+        # do it for the first round since len(points) >= 1
         just_popped = points[0][1]
         arrows_fired = 1
         for i in range(1, len(points)):
