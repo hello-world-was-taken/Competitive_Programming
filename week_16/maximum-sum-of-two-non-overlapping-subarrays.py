@@ -45,6 +45,7 @@ class Solution:
 #                     if first_len_max[i][0] + second_len_max[j][0] == 108:
 #                         print("first: ", first_len_max[i][1], "second: ", second_len_max[j][1])
                     choice = max(first_len_max[i][0] + second_len_max[j][0], choice)
+                    break
                 
         return choice
          
