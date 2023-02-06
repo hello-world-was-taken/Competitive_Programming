@@ -13,16 +13,18 @@ class DetectSquares:
         self.x_coord[x].add( y ) 
         
     def count(self, point: List[int]) -> int:
-        x1 ,y1 = point[0], point[1]
+        curr_x , curr_y = point
         ans = 0
         
-        for y2 in self.x_coord[x1]:
-            if y1 == y2: continue
+        for y in self.x_coord[curr_x]:    
+            if curr_y == y:
+                continue
             
-            side_length = y2 - y1
-            x2a = x1 + side_length
-            x2b = x1 - side_length
-            
-            ans += self.points_count [x1,y2] * self.points_count [x2a, y2 ] * self.points_count [x2a,y1] 
-            ans += self.points_count [x1,y2] * self.points_count [x2b, y2 ] * self.points_count [x2b,y1] 
+            side = y -  curr_y
+            x1 = curr_x + side
+            x2 = curr_x - side
+        
+            ans += self.points_count [curr_x,y] * self.points_count [x1, y ] * self.points_count [x1, curr_y] 
+            ans += self.points_count [curr_x,y] * self.points_count [x2, y ] * self.points_count [x2, curr_y] 
+        
         return ans
